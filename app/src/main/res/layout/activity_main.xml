@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="15dp">
+
+        <ImageButton
+            android:layout_marginStart="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:src="@drawable/baseline_menu_24"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <ImageButton
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:scaleType="fitCenter"
+            android:background="@color/transparent"
+            android:src="@drawable/cart"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Best jewelry \nfor you"
+            android:fontFamily="@font/merriweather_bold"
+            android:textSize="34sp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginStart="28dp"
+            android:textColor="@color/pinkDark"/>
+
+        <EditText
+            android:layout_width="280dp"
+            android:layout_height="60dp"
+            android:background="@drawable/search_bar"
+            android:drawableStart="@drawable/baseline_search_24"
+            android:paddingStart="24dp"
+            android:drawablePadding="14dp"
+            android:inputType="text"
+            android:hint="@string/search"
+            android:textColorHint="#BBBBBB"
+            android:layout_marginBottom="15dp"
+            android:layout_marginStart="28dp"/>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabTextColor="@color/pinkDark"
+            app:tabSelectedTextColor="@color/pink"
+            app:tabTextAppearance="@style/TabText"
+            app:tabIndicatorColor="@color/transparent"
+            android:backgroundTint="@color/transparent"
+            app:tabBackground="@drawable/tab_color_selector"
+            android:layout_marginBottom="15dp" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/viewPager2"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_layout"
+        android:paddingVertical="10dp"
+        android:gravity="center">
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/heart"
+            android:background="@color/transparent"/>
+
+        <Space
+            android:layout_width="71dp"
+            android:layout_height="match_parent"/>
+
+        <ImageButton
+            android:layout_width="69dp"
+            android:layout_height="64dp"
+            android:background="@drawable/gradient_diamond_bg"
+            android:src="@drawable/diamond" />
+
+        <Space
+            android:layout_width="71dp"
+            android:layout_height="match_parent"/>
+
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_person_outline_24"
+            android:background="@color/transparent"/>
+    </LinearLayout>
+</LinearLayout>

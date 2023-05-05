@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.ProductDetailActivity"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="15dp">
+
+        <ImageButton
+            android:layout_marginStart="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:src="@drawable/baseline_arrow_back_ios_new_24"
+            android:onClick="backActivity"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <ImageButton
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:scaleType="fitCenter"
+            android:background="@color/transparent"
+            android:src="@drawable/cart"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="20dp">
+
+        <ImageView
+            android:id="@+id/iv_product_thumbnail1"
+            android:layout_width="300dp"
+            android:layout_height="280dp"
+            android:scaleType="fitCenter"
+            android:background="@color/background"
+            tools:src="@drawable/image_27"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/card_layout"
+        android:paddingVertical="20dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp">
+        <TextView
+            android:id="@+id/tv_product_name1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            tools:text="Pink Diamond"
+            android:textSize="24sp"
+            android:fontFamily="@font/merriweather_bold"
+            android:textColor="@color/pinkDark"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Description"
+            android:textSize="24sp"
+            android:fontFamily="@font/merriweather_bold"
+            android:textColor="@color/pinkDark"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+        <TextView
+            android:id="@+id/tv_product_description1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Pure ring with Diamonds (0.1400 Ct)"
+            android:textColor="@color/purple"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_product_price1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                tools:text="$12000"
+                android:textSize="24sp"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/pinkDark"/>
+            <Space
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:background="@drawable/gradient_diamond_bg"
+                android:textColor="@color/white"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="-"
+                android:onClick="decrementQuantity"/>
+
+            <TextView
+                android:id="@+id/tv_product_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="1"
+                android:textSize="21sp"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/pinkDark"
+                android:layout_marginHorizontal="10dp"/>
+
+            <Button
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:background="@drawable/gradient_diamond_bg"
+                android:textColor="@color/white"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="+"
+                android:onClick="incrementQuantity"/>
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:background="@drawable/gradient_background"
+            android:text="Add to cart"
+            android:textColor="@color/white"
+            android:onClick="goToMyCart"/>
+
+    </LinearLayout>
+
+</LinearLayout>
