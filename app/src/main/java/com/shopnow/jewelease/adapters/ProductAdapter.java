@@ -2,6 +2,7 @@ package com.shopnow.jewelease.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,39 +15,38 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.shopnow.jewelease.R;
 import com.shopnow.jewelease.activities.ProductDetailActivity;
-import com.shopnow.jewelease.models.ProductModel;
+import com.shopnow.jewelease.database.entity.Product;
+import com.shopnow.jewelease.util.ImageHelper;
 
 import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
-    private List<ProductModel> productModelList;
+    private List<Product> productList;
     private Context context;
 
-    public ProductAdapter(Context context, List<ProductModel> productModelList) {
+    public ProductAdapter(Context context, List<Product> productModelList) {
         this.context = context;
-        this.productModelList = productModelList;
+        this.productList = productModelList;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-
-        ProductModel productModel = productModelList.get(position);
-
-        String name = productModel.getName();
-        String description = productModel.getDescription();
-        String price = "$" + productModel.getPrice();
-        int thumbnail = productModel.getThumbnail();
-
-        viewHolder.getTv_product_name().setText(name);
-        viewHolder.getTv_product_description().setText(description);
-        viewHolder.getTv_product_price().setText(price);
-        viewHolder.getIv_product_thumbnail().setImageResource(thumbnail);
-        viewHolder.cv_product_view.setOnClickListener(new View.OnClickListener() {
+        Product product = productList.get(position);
+        String name = product.name;
+        String description = product.description;
+        String price = "$" + product.price;
+        byte[] thumbnail = product.thumbnail;
+        Bitmap bmpThumbnail = ImageHelper.convertByteArrayToBitmap(thumbnail);
+        viewHolder.tvName.setText(name);
+        viewHolder.tvDescription.setText(description);
+        viewHolder.tvPrice.setText(price);
+        viewHolder.ivThumbnail.setImageBitmap(bmpThumbnail);
+        viewHolder.cvView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, ProductDetailActivity.class);
-                intent.putExtra("model", productModel);
+                intent.putExtra("product_id", product.id);
                 context.startActivity(intent);
             }
         });
@@ -63,36 +63,23 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return productModelList.size();
+        return productList.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private ImageView iv_product_thumbnail;
-        private TextView tv_product_name, tv_product_description, tv_product_price;
-        private CardView cv_product_view;
+        public ImageView ivThumbnail;
+        public TextView tvName, tvDescription, tvPrice;
+        public CardView cvView;
 
         public ViewHolder(View view) {
             super(view);
             // Define click listener for the ViewHolder's View
 
-            tv_product_name = (TextView) view.findViewById(R.id.tv_product_name);
-            tv_product_description = (TextView) view.findViewById(R.id.tv_product_description);
-            tv_product_price = (TextView) view.findViewById(R.id.tv_product_price);
-            iv_product_thumbnail = (ImageView) view.findViewById(R.id.iv_product_thumbnail);
-            cv_product_view = (CardView) view.findViewById(R.id.product_view);
-        }
-
-        public TextView getTv_product_name() {
-            return tv_product_name;
-        }
-        public TextView getTv_product_description() {
-            return tv_product_description;
-        }
-        public TextView getTv_product_price() {
-            return tv_product_price;
-        }
-        public ImageView getIv_product_thumbnail(){
-            return iv_product_thumbnail;
+            tvName = (TextView) view.findViewById(R.id.tv_product_name);
+            tvDescription = (TextView) view.findViewById(R.id.tv_product_description);
+            tvPrice = (TextView) view.findViewById(R.id.tv_product_price);
+            ivThumbnail = (ImageView) view.findViewById(R.id.iv_product_thumbnail);
+            cvView = (CardView) view.findViewById(R.id.product_view);
         }
     }
 }

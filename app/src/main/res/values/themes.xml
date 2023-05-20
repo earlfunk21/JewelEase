@@ -17,4 +17,19 @@
         <item name="cornerSize">20dp</item>
         <item name="cornerFamily">rounded</item>
     </style>
+
+    <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="background">@color/white</item>
+        <item name="buttonBarNegativeButtonStyle">@style/negative</item>
+        <item name="buttonBarPositiveButtonStyle">@style/positive</item>
+    </style>
+
+    <style name="positive">
+        <item name="android:textColor">@color/pink</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+    <style name="negative">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
 </resources>

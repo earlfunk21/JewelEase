@@ -32,7 +32,8 @@
             android:scaleType="fitCenter"
             android:background="@color/transparent"
             android:src="@drawable/cart"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:onClick="openCartActivity"/>
 
     </LinearLayout>
 
@@ -161,7 +162,7 @@
             android:background="@drawable/gradient_background"
             android:text="Add to cart"
             android:textColor="@color/white"
-            android:onClick="goToMyCart"/>
+            android:onClick="addToCart"/>
 
     </LinearLayout>
 
