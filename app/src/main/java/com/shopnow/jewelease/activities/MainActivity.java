@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
             }
 
             @Override
@@ -87,5 +86,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void openSidebar(View view) {
         drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+    public void openProfileActivity(View view) {
+        Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+        startActivity(intent);
     }
 }
