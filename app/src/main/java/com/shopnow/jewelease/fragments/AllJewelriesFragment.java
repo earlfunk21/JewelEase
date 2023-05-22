@@ -20,6 +20,7 @@ import com.shopnow.jewelease.database.AppDatabase;
 import com.shopnow.jewelease.database.dao.ProductDao;
 import com.shopnow.jewelease.database.entity.Product;
 import com.shopnow.jewelease.models.ProductModel;
+import com.shopnow.jewelease.util.ImageHelper;
 
 import java.io.ByteArrayOutputStream;
 import java.math.BigDecimal;
@@ -57,10 +58,32 @@ public class AllJewelriesFragment extends Fragment {
 
     private void initData() {
         productList = new ArrayList<>();
+        load();
+
         try {
             productList.addAll(productDao.getProducts());
         } catch (NullPointerException ignored) {
         }
     }
 
+    private void load() {
+        Bitmap bmpDiamond = BitmapFactory.decodeResource(getResources(), R.drawable.image_28);
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bmpDiamond.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] diamondRing = stream.toByteArray();
+        productDao.insert(new Product("Diamond Ring", "Diamond", "Pure ring with Diamonds (0.1400Ct)", BigDecimal.valueOf(5500), diamondRing));
+
+        bmpDiamond = BitmapFactory.decodeResource(getResources(), R.drawable.image_27);
+        stream = new ByteArrayOutputStream();
+        bmpDiamond.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] goldRing = stream.toByteArray();
+        productDao.insert(new Product("Gold Ring", "Gold", "Pure ring with Golds (0.1400Ct)", BigDecimal.valueOf(5500), goldRing));
+
+        bmpDiamond = BitmapFactory.decodeResource(getResources(), R.drawable.image_26);
+        stream = new ByteArrayOutputStream();
+        bmpDiamond.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] silverRing = stream.toByteArray();
+        productDao.insert(new Product("Gold Ring", "Gold", "Pure ring with Golds (0.1400Ct)", BigDecimal.valueOf(5500), silverRing));
+
+    }
 }
