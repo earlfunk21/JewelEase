@@ -20,4 +20,7 @@ public interface WishlistDao {
 
     @Query("SELECT * FROM Wishlist WHERE userId = :userId")
     List<Wishlist> getWishlistByUserId(long userId);
+
+    @Query("SELECT * FROM Wishlist WHERE userId = :userId AND productId = :productId")
+    Wishlist getWishlistByUserIdAndProductId(long userId, long productId);
 }

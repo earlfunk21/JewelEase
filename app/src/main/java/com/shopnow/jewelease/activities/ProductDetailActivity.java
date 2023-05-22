@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,8 +16,10 @@ import com.shopnow.jewelease.database.AppDatabase;
 import com.shopnow.jewelease.database.dao.CartDao;
 import com.shopnow.jewelease.database.dao.ProductDao;
 import com.shopnow.jewelease.database.dao.UserDao;
+import com.shopnow.jewelease.database.dao.WishlistDao;
 import com.shopnow.jewelease.database.entity.Cart;
 import com.shopnow.jewelease.database.entity.Product;
+import com.shopnow.jewelease.database.entity.Wishlist;
 import com.shopnow.jewelease.util.ImageHelper;
 
 import java.math.BigDecimal;
@@ -35,6 +38,9 @@ public class ProductDetailActivity extends AppCompatActivity {
     private long userId;
     private long product_id;
     private UserDao userDao;
+    private WishlistDao wishlistDao;
+    private ImageButton ibWishlist;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +48,7 @@ public class ProductDetailActivity extends AppCompatActivity {
 
         productDao = AppDatabase.getInstance(this).productDao();
         cartDao = AppDatabase.getInstance(this).cartDao();
+        wishlistDao = AppDatabase.getInstance(this).wishlistDao();
 
         userPrefs = getSharedPreferences("userPrefs", MODE_PRIVATE);
         String username = userPrefs.getString("user", "");
@@ -64,6 +71,11 @@ public class ProductDetailActivity extends AppCompatActivity {
         tv_product_description.setText(product.description);
         Bitmap bmpThumbnail = ImageHelper.convertByteArrayToBitmap(product.thumbnail);
         iv_product_thumbnail.setImageBitmap(bmpThumbnail);
+
+        ibWishlist = findViewById(R.id.ib_wishlist);
+        if (wishlistDao.getWishlistByUserIdAndProductId(userId, product_id) != null) {
+            ibWishlist.setImageResource(R.drawable.heart_filled);
+        }
     }
 
     public void backActivity(View view) {
@@ -99,8 +111,16 @@ public class ProductDetailActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openCartActivity(View view) {
-        Intent intent = new Intent(ProductDetailActivity.this, CartActivity.class);
-        startActivity(intent);
+    public void addToWishlist(View view) {
+        Wishlist wishlist = wishlistDao.getWishlistByUserIdAndProductId(userId, product_id);
+        if (wishlist != null) {
+            ibWishlist.setImageResource(R.drawable.heart);
+            ibWishlist.setEnabled(true);
+
+            wishlistDao.delete(wishlist);
+        } else {
+            wishlistDao.insert(new Wishlist(userId, product_id));
+            ibWishlist.setImageResource(R.drawable.heart_filled);
+        }
     }
 }

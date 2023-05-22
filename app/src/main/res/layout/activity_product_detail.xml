@@ -26,14 +26,17 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
+
         <ImageButton
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:id="@+id/ib_wishlist"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
             android:scaleType="fitCenter"
+            app:tint="@color/black"
             android:background="@color/transparent"
-            android:src="@drawable/cart"
+            android:src="@drawable/heart"
             android:layout_gravity="center"
-            android:onClick="openCartActivity"/>
+            android:onClick="addToWishlist"/>
 
     </LinearLayout>
 
