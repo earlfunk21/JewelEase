@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.ProfileActivity">
+    tools:context=".activities.ProfileActivity"
+    android:background="@color/background">
 
     <LinearLayout
         android:id="@+id/toolbar"
@@ -33,15 +34,6 @@
             android:text="Profile"
             android:textColor="@color/pinkDark"
             android:textSize="28sp" />
-
-        <ImageButton
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_gravity="center"
-            android:background="@color/transparent"
-            android:onClick="openCartActivity"
-            android:scaleType="fitCenter"
-            android:src="@drawable/cart" />
 
     </LinearLayout>
 
@@ -93,7 +85,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
             android:background="@color/transparent"
-            android:drawableStart="@drawable/logout"
+            android:drawableStart="@drawable/wishlist"
+            android:textColor="@color/pinkDark"
             android:drawableEnd="@drawable/baseline_arrow_forward_24"
             android:text="Wishlist" />
 
@@ -106,7 +99,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
             android:background="@color/transparent"
-            android:drawableStart="@drawable/logout"
+            android:drawableStart="@drawable/edit"
+            android:textColor="@color/pinkDark"
             android:drawableEnd="@drawable/baseline_arrow_forward_24"
             android:text="Edit Profile" />
 
@@ -119,9 +113,10 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
             android:background="@color/transparent"
-            android:drawableStart="@drawable/logout"
+            android:drawableStart="@drawable/leave"
             android:drawableEnd="@drawable/baseline_arrow_forward_24"
             android:onClick="logoutUser"
+            android:textColor="@color/pinkDark"
             android:text="Logout" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
