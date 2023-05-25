@@ -97,4 +97,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, WishlistActivity.class);
         startActivity(intent);
     }
+
+    public void openMyOrder(View view){
+        Intent intent = new Intent(MainActivity.this, OrdersActivity.class);
+        startActivity(intent);
+    }
 }

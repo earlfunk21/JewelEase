@@ -41,7 +41,6 @@
                 android:onClick="openCartActivity"
                 android:scaleType="fitCenter"
                 android:src="@drawable/cart" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -59,19 +58,6 @@
                 android:text="Best jewelry \nfor you"
                 android:textColor="@color/pinkDark"
                 android:textSize="34sp" />
-
-            <EditText
-                android:layout_width="280dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/search_bar"
-                android:drawableStart="@drawable/baseline_search_24"
-                android:drawablePadding="14dp"
-                android:hint="@string/search"
-                android:inputType="text"
-                android:paddingStart="24dp"
-                android:textColorHint="#BBBBBB" />
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabLayout"

@@ -24,4 +24,13 @@
             android:layout_height="2dp"
             android:background="@color/grey"/>
     </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:background="@drawable/gradient_background"
+        android:drawableEnd="@drawable/baseline_arrow_forward_24"
+        android:drawableTint="@color/grey"
+        android:onClick="openMyOrder"
+        android:text="My Orders"/>
 </LinearLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/pop_up_dialog"
+    android:padding="10dp"
+    android:background="@color/white"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What is your feedback?"
+        android:textColor="@color/pinkDark"
+        android:fontFamily="@font/merriweather_bold"
+        android:textSize="18sp"/>
+
+    <EditText
+        android:id="@+id/et_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/login_et"
+        android:textColor="@color/white"
+        android:hint="Enter your feedback here"
+        android:padding="10dp"
+        android:textColorHint="@color/grey"/>
+</LinearLayout>

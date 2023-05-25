@@ -177,5 +177,6 @@
         android:text="Place Order"
         android:layout_margin="20dp"
         android:textColor="@color/white"
+        android:onClick="placeOrder"
         android:background="@drawable/gradient_background"/>
 </LinearLayout>
