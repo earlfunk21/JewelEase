@@ -43,6 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
         EditText etFirstName = findViewById(R.id.first_name_et);
         EditText etLastName = findViewById(R.id.last_name_et);
 
+
         String password = Objects.requireNonNull(etPassword.getText()).toString();
         String confirm_password = Objects.requireNonNull(etPassword1.getText()).toString();
         String username = Objects.requireNonNull(etEmail.getText()).toString();
@@ -52,7 +53,15 @@ public class RegisterActivity extends AppCompatActivity {
         String address2 = Objects.requireNonNull(etAddress2.getText()).toString();
         String phoneNumber = Objects.requireNonNull(etPhoneNumber.getText()).toString();
 
-        if(password.equals("") || confirm_password.equals("") || username.equals("")){
+
+        if(password.equals("")
+                || confirm_password.equals("")
+                || username.equals("")
+                || firstname.equals("")
+                || lastname.equals("")
+                || address1.equals("")
+                || address2.equals("")
+                || phoneNumber.equals("")){
             Toast.makeText(this, "Fields are required!", Toast.LENGTH_SHORT).show();
             return;
         }

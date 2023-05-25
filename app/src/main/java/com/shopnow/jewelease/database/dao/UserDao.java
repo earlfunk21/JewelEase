@@ -3,6 +3,7 @@ package com.shopnow.jewelease.database.dao;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.shopnow.jewelease.database.entity.User;
 
@@ -24,4 +25,7 @@ public interface UserDao {
 
     @Query("SELECT * FROM User WHERE id = :id")
     User getUserById(long id);
+
+    @Update
+    void update(User user);
 }

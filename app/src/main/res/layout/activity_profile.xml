@@ -69,6 +69,25 @@
             android:textColor="@color/grey"
             tools:text="rodsechan@gmail.com" />
 
+        <TextView
+            android:id="@+id/tv_address1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grey"
+            tools:text="address1" />
+
+        <TextView
+            android:id="@+id/tv_address2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grey"
+            tools:text="address2" />
+        <TextView
+            android:id="@+id/tv_phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grey"
+            tools:text="phone number" />
     </LinearLayout>
 
 
@@ -102,7 +121,8 @@
             android:drawableStart="@drawable/edit"
             android:textColor="@color/pinkDark"
             android:drawableEnd="@drawable/baseline_arrow_forward_24"
-            android:text="Edit Profile" />
+            android:text="Edit Profile"
+            android:onClick="openEditProfile"/>
 
         <Space
             android:layout_width="match_parent"

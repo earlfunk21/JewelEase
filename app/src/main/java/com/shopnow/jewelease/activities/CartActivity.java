@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -98,5 +99,10 @@ public class CartActivity extends AppCompatActivity {
             cartList.addAll(cartDao.getUserWithCarts(userId));
         } catch (NullPointerException ignored) {
         }
+    }
+
+    public void gotoCheckOut(View view) {
+        Intent intent = new Intent(CartActivity.this, CheckOutActivity.class);
+        startActivity(intent);
     }
 }

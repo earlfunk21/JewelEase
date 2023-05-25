@@ -23,4 +23,5 @@ public interface CartDao {
 
     @Query("SELECT * FROM Cart WHERE userId = :userId")
     List<Cart> getUserWithCarts(long userId);
+
 }

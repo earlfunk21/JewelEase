@@ -37,14 +37,4 @@ public class AppDatabaseTest {
         db.close();
     }
 
-    @Test
-    public void writeUserAndReadInList() throws Exception {
-        Product product = new Product("Diamond Ring", "Diamond", "Pure ring with Diamonds (0.1400Ct)", BigDecimal.valueOf(5500), R.drawable.image_26);
-        productDao.insert(product);
-        List<Product> products = productDao.getProducts();
-        for (Product productItem:
-             products) {
-            System.out.println("Name: " + productItem.name + " ID: " + productItem.id + " Image: " + productItem.thumbnail);
-        }
-    }
 }

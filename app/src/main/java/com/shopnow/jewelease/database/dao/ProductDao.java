@@ -8,6 +8,7 @@ import androidx.room.Query;
 
 import com.shopnow.jewelease.database.entity.Product;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Dao
@@ -35,4 +36,8 @@ public interface ProductDao {
 
     @Query("SELECT * FROM Product WHERE category = 'Diamond'")
     List<Product> getProductsByDiamond();
+
+    @Query("SELECT SUM(price) FROM Product INNER JOIN Cart ON Cart.productId = Product.id " +
+            "WHERE Cart.userId = :userId")
+    BigDecimal getTotalPrice(long userId);
 }

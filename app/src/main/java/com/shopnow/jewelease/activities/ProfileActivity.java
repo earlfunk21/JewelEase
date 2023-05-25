@@ -31,11 +31,15 @@ public class ProfileActivity extends AppCompatActivity {
         user = userDao.getUserByUsername(userPrefs.getString("user", ""));
         TextView tvFullName = findViewById(R.id.tv_full_name);
         TextView tvUsername = findViewById(R.id.tv_username);
+        TextView tvAddress1 = findViewById(R.id.tv_address1);
+        TextView tvAddress2 = findViewById(R.id.tv_address2);
+        TextView tvPhoneNumber = findViewById(R.id.tv_phone_number);
         String fullName = user.firstname + " " + user.lastname;
-
         tvFullName.setText(fullName);
         tvUsername.setText(user.username);
-
+        tvAddress1.setText(user.address1);
+        tvAddress2.setText(user.address2);
+        tvPhoneNumber.setText(user.phoneNumber);
     }
 
     public void logoutUser(View view) {
@@ -44,6 +48,15 @@ public class ProfileActivity extends AppCompatActivity {
         userEditor.apply();
         Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+    public void backActivity(View view) {
+        onBackPressed();
+    }
+
+    public void openEditProfile(View view) {
+        Intent intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
         startActivity(intent);
     }
 }
